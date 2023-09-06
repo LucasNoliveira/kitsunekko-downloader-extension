@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Palavras</title>
+    <style>
+        /* Estilo para esconder as palavras que não correspondem à busca */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Busca de Palavras</h1>
+    <input type="text" id="busca" placeholder="Digite a palavra">
+    <ul id="lista-palavras">
+        <li>banana</li>
+        <li>maçã</li>
+        <li>pudim</li>
+        <li>laranja</li>
+        <li>bolo</li>
+        <!-- Adicione mais palavras à lista conforme necessário -->
+    </ul>
+    <script>
+        const inputBusca = document.getElementById('busca');
+        const listaPalavras = document.getElementById('lista-palavras');
+
+        inputBusca.addEventListener('input', () => {
+            const termoBusca = inputBusca.value.toLowerCase(); // Converter para minúsculas para fazer uma busca sem distinção entre maiúsculas e minúsculas
+            const palavras = listaPalavras.querySelectorAll('li');
+
+            palavras.forEach((palavra) => {
+                const texto = palavra.textContent.toLowerCase(); // Converter o texto da palavra para minúsculas
+
+                if (texto.includes(termoBusca)) {
+                    palavra.classList.remove('hidden');
+                } else {
+                    palavra.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

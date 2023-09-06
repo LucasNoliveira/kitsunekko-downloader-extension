@@ -1,0 +1,2 @@
+# kitsunekko-downloader-extension
+ 
